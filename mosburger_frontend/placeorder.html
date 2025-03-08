@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mos Burgers - Place Order</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/placeorder.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mos Burgers - Place Order</h1>
+        <a href="homepage.html" class="back-button">← Back</a>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search by ID or Name">
+            <button id="search-by-id">Search by ID</button>
+            <button id="search-by-name">Search by Name</button>
+        </div>
+
+        <!-- Search Results -->
+        <div class="search-results" id="search-results">
+            <!-- Search results will be dynamically added here -->
+        </div>
+
+        <!-- Menu Sections -->
+        <div class="menu-sections">
+            <div class="menu-section" id="burgers">
+                <h2>Burgers</h2>
+                <div class="menu-cards"></div>
+            </div>
+            <div class="menu-section" id="submarines">
+                <h2>Submarines</h2>
+                <div class="menu-cards"></div>
+            </div>
+            <div class="menu-section" id="drinks">
+                <h2>Drinks</h2>
+                <div class="menu-cards"></div>
+            </div>
+            <div class="menu-section" id="desserts">
+                <h2>Desserts</h2>
+                <div class="menu-cards"></div>
+            </div>
+        </div>
+
+        <!-- Cart Section -->
+        <div class="cart-section">
+            <h2>Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-total">
+                <p>Total: $<span id="cart-total">0.00</span></p>
+            </div>
+            <div class="customer-details">
+                <input type="text" id="customer-tp" placeholder="Enter Customer TP Number" required>
+                <button onclick="placeOrder()">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Customer Popup -->
+    <div class="popup hidden" id="add-customer-popup">
+        <div class="popup-content">
+            <h2>Add New Customer</h2>
+            <form id="add-customer-form">
+                <input type="text" id="customer-name" placeholder="Customer Name" required>
+                <input type="text" id="customer-tp" placeholder="TP Number" required>
+                <button type="submit">Add Customer</button>
+                <button type="button" onclick="closePopup()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Custom JS -->
+    <script src="js/placeorder.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mos Burgers - Item Management</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/itemmanagement.css">
+</head>
+<body>
+    <div class="container">
+        <a href="homepage.html" class="back-button">← Back</a>
+        <h1>Mos Burgers - Item Management</h1>
+
+        <!-- Add Item Form -->
+        <div class="form-container">
+            <h2>Add Item</h2>
+            <form id="add-item-form">
+                <input type="text" id="item-name" placeholder="Item Name" required>
+                <input type="number" id="item-price" placeholder="Price" step="0.01" required>
+                <select id="item-category" required>
+                    <option value="burger">Burger</option>
+                    <option value="submarine">Submarine</option>
+                    <option value="drinks">Drinks</option>
+                    <option value="desserts">Desserts</option>
+                </select>
+                <input type="number" id="item-qty" placeholder="Quantity" required>
+                <input type="text" id="item-image-url" placeholder="Image URL" required>
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
+
+        <!-- Search Items -->
+        <div class="search-container">
+            <h2>Search Items</h2>
+            <div class="search-section">
+                <input type="text" id="search-by-id" placeholder="Search by ID">
+                <button onclick="searchItemById()">Search</button>
+            </div>
+            <div class="search-section">
+                <input type="text" id="search-by-name" placeholder="Search by Name">
+                <button onclick="searchItemsByName()">Search</button>
+            </div>
+        </div>
+
+        <!-- Item List -->
+        <div class="item-list">
+            <h2>Item List</h2>
+            <table id="item-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Item rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Custom JS -->
+    <script src="js/itemmanagment.js"></script>
+</body>
+</html>
