@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mos Burgers Customers</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/customermanagement.css">
+</head>
+<body>
+    
+    <div class="container">
+
+        <a href="homepage.html" class="back-button">← Back</a>
+
+        <h1>Mos Burgers Customers</h1>
+
+        <!-- Add Customer Form -->
+        <div class="form-container">
+            <h2>Add Customer</h2>
+            <form id="add-customer-form">
+                <input type="text" id="customer-name" placeholder="Customer Name" required>
+                <input type="text" id="customer-tp" placeholder="TP Number" required>
+                <button type="submit">Add Customer</button>
+            </form>
+        </div>
+
+        <!-- Search Customer -->
+        <div class="search-container">
+            <h2>Search Customer</h2>
+            <input type="text" id="search-tp" placeholder="Enter TP Number to search">
+            <button onclick="searchCustomer()">Search</button>
+        </div>
+
+        <!-- Customer List -->
+        <div class="customer-list">
+            <h2>Customer List</h2>
+            <table id="customer-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>TP Number</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Customer rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Update Customer Form (Hidden by Default) -->
+        <div class="form-container update-form hidden">
+            <h2>Update Customer</h2>
+            <form id="update-customer-form">
+                <input type="hidden" id="update-id">
+                <input type="text" id="update-name" placeholder="Customer Name" required>
+                <input type="text" id="update-tp" placeholder="TP Number" required>
+                <button type="submit">Update Customer</button>
+                <button type="button" id="cancel-update">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/customermanagement.js"></script>
+</body>
+</html>
