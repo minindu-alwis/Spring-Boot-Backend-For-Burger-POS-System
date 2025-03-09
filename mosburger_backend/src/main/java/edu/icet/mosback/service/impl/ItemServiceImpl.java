@@ -74,4 +74,9 @@ public class ItemServiceImpl implements ItemService {
         }
         return false;
     }
+
+    @Override
+    public void updateQty(String itemId, int qty) {
+        itemRepository.updateQty(itemId, qty);
+    }
 }

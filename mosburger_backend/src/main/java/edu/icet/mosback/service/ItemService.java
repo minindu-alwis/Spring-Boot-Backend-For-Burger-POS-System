@@ -11,4 +11,5 @@ public interface ItemService {
     List<Item> searchItemsByName(String name);
     boolean updateItem(Integer id, Item item);
     boolean deleteItem(Integer id);
+    void updateQty(String itemId, int qty);
 }

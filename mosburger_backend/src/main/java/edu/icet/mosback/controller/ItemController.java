@@ -75,4 +75,8 @@ public class ItemController {
             return new ResponseEntity<>("Item not found.", HttpStatus.NOT_FOUND);
         }
     }
+    @PutMapping("/updateQty/{itemId}/{qty}")
+    public void updateQty(@PathVariable String itemId, @PathVariable int qty) {
+        itemService.updateQty(itemId, qty);
+    }
 }
