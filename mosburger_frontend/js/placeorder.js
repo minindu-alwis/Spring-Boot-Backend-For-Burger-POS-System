@@ -39,11 +39,22 @@ async function fetchItems() {
     }
 }
 
-// Render menu cards by category
 function renderMenu(items) {
+    // Clear all menu sections
     Object.values(menuSections).forEach(section => (section.innerHTML = ""));
+
     items.forEach(item => {
-        const category = item.category.trim().toLowerCase();
+        // Normalize the category: trim whitespace, convert to lowercase, and map to the correct key
+        let category = item.category.trim().toLowerCase();
+
+        // Map "burger" to "burgers" and "submarine" to "submarines"
+        if (category === "burger") {
+            category = "burgers";
+        } else if (category === "submarine") {
+            category = "submarines";
+        }
+
+        // Check if the category exists in menuSections
         if (menuSections[category]) {
             const card = document.createElement("div");
             card.className = "menu-card";
@@ -54,9 +65,12 @@ function renderMenu(items) {
             `;
             card.addEventListener("click", () => addToCart(item));
             menuSections[category].appendChild(card);
+        } else {
+            console.warn(`Invalid category: ${item.category}`);
         }
     });
 }
+
 
 // Add item to cart
 function addToCart(item) {

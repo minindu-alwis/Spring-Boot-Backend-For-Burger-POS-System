@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("order")
 @RequiredArgsConstructor
-@CrossOrigin
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 
 public class OrderController {
 
@@ -19,4 +19,10 @@ public class OrderController {
     public void placeOrder(@RequestBody Order order) {
         orderService.placeOrder(order);
     }
+
+    @GetMapping("/lastOrderId")
+    public String getLastOrderId() {
+        return orderService.getLastOrderId();
+    }
+    
 }

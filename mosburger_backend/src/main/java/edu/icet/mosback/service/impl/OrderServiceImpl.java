@@ -21,4 +21,10 @@ public class OrderServiceImpl implements OrderService {
         OrderEntity orderEntity = modelMapper.map(order, OrderEntity.class);
         orderRepository.save(orderEntity);
     }
+
+    @Override
+    public String getLastOrderId() {
+        OrderEntity lastOrder = orderRepository.findTopByOrderByIdDesc();
+        return lastOrder != null ? lastOrder.getId() : "ODR000"; // Default if no orders exist
+    }
 }
