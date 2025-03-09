@@ -37,7 +37,7 @@ public class UserController {
         if(registeredUser==null){
            return false;
         }else{
-            String apiKey = "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";
+            String apiKey = "";
             String templateId = "d-3f49798d3adb496db02e99d5eae495b1";
             String fromEmail = "miniduminidu100@gmail.com";
             String toEmail = user.getEmail(); // Get recipient email
