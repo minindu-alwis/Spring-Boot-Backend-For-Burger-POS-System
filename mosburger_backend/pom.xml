@@ -66,6 +66,14 @@
             <version>5.7.6</version> <!-- Use the latest version compatible with your Spring Boot version -->
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java -->
+        <dependency>
+            <groupId>com.sendgrid</groupId>
+            <artifactId>sendgrid-java</artifactId>
+            <version>4.10.1</version>
+        </dependency>
+
+
 
     </dependencies>
 
