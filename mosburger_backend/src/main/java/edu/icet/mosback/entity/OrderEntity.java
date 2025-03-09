@@ -1,14 +1,13 @@
 package edu.icet.mosback.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import edu.icet.mosback.dto.OrderDetail;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,12 +17,14 @@ import java.sql.Date;
 public class OrderEntity {
     @Id
     @Column(name = "id", length = 6)
-    private String id;
+    private String id; // Order ID
+
+    @Column(name = "customer_id", length = 6)
+    private String customerId; // Customer ID
 
     @Column(name = "date")
-    private Date date;
+    private Date date; // Order Date
 
-    @Column(name = "customerId", length = 6)
-    private String customerId;
-
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderDetailEntity> orderDetails; // Relationship to OrderDetailEntity
 }

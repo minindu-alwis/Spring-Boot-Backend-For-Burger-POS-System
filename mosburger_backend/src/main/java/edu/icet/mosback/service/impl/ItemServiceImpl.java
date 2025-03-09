@@ -79,4 +79,5 @@ public class ItemServiceImpl implements ItemService {
     public void updateQty(String itemId, int qty) {
         itemRepository.updateQty(itemId, qty);
     }
+
 }
