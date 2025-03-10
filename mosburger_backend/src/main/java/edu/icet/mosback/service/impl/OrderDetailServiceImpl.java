@@ -50,5 +50,4 @@ public class OrderDetailServiceImpl implements OrderDetailService {
         orderDetailsRepository.updateOrderDetail(orderId, itemCode, qty, unitPrice);
     }
 
-
 }

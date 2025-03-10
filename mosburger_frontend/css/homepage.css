@@ -122,3 +122,41 @@ p {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Add hover shadow */
 }
 
+
+.report-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: -13px;
+}
+
+.report-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.customer-report {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    color: white;
+}
+
+.item-report {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+}
+
+.order-report {
+    background: linear-gradient(45deg, #43cea2, #185a9d);
+    color: white;
+}
+
+.report-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}

@@ -35,4 +35,5 @@ public interface OrderDetailsRepository extends JpaRepository<OrderDetailEntity,
                            @Param("itemCode") String itemCode,
                            @Param("qty") int qty,
                            @Param("unitPrice") double unitPrice);
+
 }

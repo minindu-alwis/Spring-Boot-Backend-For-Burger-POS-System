@@ -596,5 +596,97 @@ window.addEventListener("click", (e) => {
 fetchAndDisplayOrderDetails();
 
 
+// Constants
+const searchOrderIdInput = document.getElementById("search-order-id");
+const searchItemCodeInput = document.getElementById("search-item-code");
 
+// Function to fetch and display all order details
+async function fetchAllOrderDetails() {
+    try {
+        const response = await fetch(`${ORDER_DETAILS_BASE_URL}/all`);
+        if (!response.ok) throw new Error("Failed to fetch all order details");
 
+        const orderDetails = await response.json();
+
+        // Clear the table before rendering new data
+        orderDetailsTableBody.innerHTML = "";
+
+        if (orderDetails.length > 0) {
+            orderDetails.forEach(orderDetail => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${orderDetail.id}</td>
+                    <td>${orderDetail.itemCode}</td>
+                    <td>${orderDetail.qty}</td>
+                    <td>$${orderDetail.unitPrice.toFixed(2)}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="edit" onclick="openEditModal('${orderDetail.id}', '${orderDetail.itemCode}', ${orderDetail.qty}, ${orderDetail.unitPrice})">Edit</button>
+                            <button class="delete" onclick="deleteOrderDetail('${orderDetail.id}', '${orderDetail.itemCode}')">Delete</button>
+                        </div>
+                    </td>
+                `;
+                orderDetailsTableBody.appendChild(row);
+            });
+        } else {
+            orderDetailsTableBody.innerHTML = `<tr><td colspan="5" style="text-align: center;">No order details available.</td></tr>`;
+        }
+    } catch (error) {
+        console.error("Error fetching all order details:", error);
+        orderDetailsTableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: red;">Failed to load order details. Please try again.</td></tr>`;
+    }
+}
+
+// Function to fetch and display search results
+async function searchOrderDetails(orderId, itemCode) {
+    try {
+        const response = await fetch(`${ORDER_DETAILS_BASE_URL}/search/${orderId}/${itemCode}`);
+        if (!response.ok) throw new Error("Failed to fetch order details");
+
+        const orderDetail = await response.json();
+
+        // Clear the table and render the single result
+        orderDetailsTableBody.innerHTML = "";
+        if (orderDetail) {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${orderDetail.id}</td>
+                <td>${orderDetail.itemCode}</td>
+                <td>${orderDetail.qty}</td>
+                <td>$${orderDetail.unitPrice.toFixed(2)}</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="edit" onclick="openEditModal('${orderDetail.id}', '${orderDetail.itemCode}', ${orderDetail.qty}, ${orderDetail.unitPrice})">Edit</button>
+                        <button class="delete" onclick="deleteOrderDetail('${orderDetail.id}', '${orderDetail.itemCode}')">Delete</button>
+                    </div>
+                </td>
+            `;
+            orderDetailsTableBody.appendChild(row);
+        } else {
+            orderDetailsTableBody.innerHTML = `<tr><td colspan="5" style="text-align: center;">No order details found for the given search criteria.</td></tr>`;
+        }
+    } catch (error) {
+        console.error("Error searching order details:", error);
+        orderDetailsTableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: red;">Failed to search order details. Please try again.</td></tr>`;
+    }
+}
+
+// Function to handle input changes
+function handleSearchInput() {
+    const orderId = searchOrderIdInput.value.trim();
+    const itemCode = searchItemCodeInput.value.trim();
+
+    if (orderId && itemCode) {
+        searchOrderDetails(orderId, itemCode);
+    } else {
+        // If both fields are empty, fetch all order details
+        fetchAllOrderDetails();
+    }
+}
+
+// Add event listeners for input changes
+searchOrderIdInput.addEventListener("input", handleSearchInput);
+searchItemCodeInput.addEventListener("input", handleSearchInput);
+
+// Fetch all order details on page load
+fetchAllOrderDetails();
