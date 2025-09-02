@@ -7,7 +7,6 @@ A modern Point of Sale (POS) system backend specifically designed for burger res
 ### Core POS Functionality
 - **Order Management**: Create, update, and track customer orders
 - **Menu Management**: Dynamic burger menu with customizable items, combos, and add-ons
-- **Inventory Tracking**: Real-time ingredient and stock management
 - **Payment Processing**: Support for multiple payment methods (cash, card, digital)
 - **Receipt Generation**: Automated receipt creation and printing integration
 
@@ -30,7 +29,6 @@ A modern Point of Sale (POS) system backend specifically designed for burger res
 - **ORM**: Spring Data JPA with Hibernate
 - **Security**: Spring Security with JWT authentication
 - **Documentation**: Swagger/OpenAPI 3.0
-- **Testing**: JUnit 5, Mockito
 - **Build Tool**: Maven
 - **Validation**: Bean Validation (JSR-303)
 
@@ -99,13 +97,6 @@ mvn spring-boot:run
 The application will start at `http://localhost:8080/api/v1`
 
 ## 📖 API Documentation
-
-### Authentication Endpoints
-```
-POST /auth/login          - Staff login
-POST /auth/refresh        - Refresh JWT token
-POST /auth/logout         - Logout
-```
 
 ### Menu Management
 ```
