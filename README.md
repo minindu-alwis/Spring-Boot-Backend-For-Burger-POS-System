@@ -237,7 +237,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For support and questions:
 - Create an issue in the GitHub repository
-- Email: support@burgerpos.com
+- Email: mos.minibuger@gmail.com
 - Documentation: [Wiki](https://github.com/minindu-alwis/Spring-Boot-Backend-For-Burger-POS-System/wiki)
 
 ## 🎯 Roadmap
