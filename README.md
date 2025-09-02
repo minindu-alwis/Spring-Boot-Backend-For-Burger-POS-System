@@ -246,10 +246,6 @@ For support and questions:
 - [ ] Mobile app integration
 - [ ] Real-time notifications
 - [ ] Advanced analytics dashboard
-- [ ] Multi-location support
-- [ ] Kitchen display system integration
-- [ ] Loyalty program enhancements
-
 ---
 
 **Built with ❤️ for the food service industry**
